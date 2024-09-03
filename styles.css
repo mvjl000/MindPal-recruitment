@@ -1,0 +1,135 @@
+:root {
+    font-family: sans-serif;
+
+    --ui-item-border-radius: 10px;
+    --input-padding: 10px;
+
+    --searchInput-background: #ebecee;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.app {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.container {
+    aspect-ratio: 1 / 2;
+    width: 100%;
+    max-width: 376px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 15px;
+    border: 1px solid #aaa;
+    position: relative;
+    overflow: hidden;;
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.searchInput__container {
+    position: relative;
+}
+
+.searchInput__icon {
+    position: absolute;
+    top: 50%;
+    left: var(--input-padding);
+    transform: translateY(-50%);
+}
+
+.input {
+    width: 100%;
+    padding: var(--input-padding);
+    border-radius: var(--ui-item-border-radius);
+    border: 1px solid transparent;
+    background-color: #ebecee;
+    font-size: 17px;
+}
+
+.searchInput {
+    padding-left: 40px;
+}
+
+.searchInput::placeholder {
+    letter-spacing: 1px;
+}
+
+.buttonPrimary {
+    border: 1px solid transparent;
+    background-color: #603590;
+    color: white;
+    border-radius: var(--ui-item-border-radius);
+    padding: 10px 20px;
+    font-size: 17px;
+}
+
+.noteForm {
+    position: absolute;
+    top: 125px;
+    left: 0;
+    width: 100%;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.2);
+}
+
+.noteForm__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.noteForm__cancel {
+    background-color: transparent;
+    border: none;
+    color: #116aaf;
+}
+
+.noteForm__textareaCotnainer {
+    position relative;
+}
+
+.noteForm__textarea {
+    width: 100%;
+    padding: var(--input-padding);
+    border-radius: var(--ui-item-border-radius);
+    border: 1px solid transparent;
+    background-color: #ebecee;
+    font-size: 17px;
+    resize: vertical;
+    font-family: sans-serif
+}
+
+.noteForm__addButton {
+    position: absolute;
+    bottom: 40px;
+    right: 35px;
+}

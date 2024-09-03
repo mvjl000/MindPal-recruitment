@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h1>Hello world</h1>
+    <!-- <h1>Hello world</h1> -->
+     <div class="app">
+        <div class="container">
+            <header class="header__container">
+                <img src="/assets/file.svg" />
+                <h1 class="header">Notes</h1>
+            </header>
+            <div class="searchInput__container">
+                <img src="/assets/magnifier.svg" class="searchInput__icon" />
+                <input class="input searchInput" placeholder="Search notes..." />
+            </div>
+            <button class="buttonPrimary">Add New</button>
+            <form class="noteForm">
+                <div class="noteForm__header">
+                    <span>Add new note</span>
+                    <button class="noteForm__cancel">Cancel</button>
+                </div>
+                <input class="input" placeholder="Note title" />
+                <div class="noteForm__textareaCotnainer">
+                    <textarea class="noteForm__textarea" placeholder="Your note..." rows="7"></textarea>
+                    <button class="buttonPrimary noteForm__addButton">Add</button>
+                </div>
+            </form>
+        </div>
+     </div>
 </body>
 </html>
