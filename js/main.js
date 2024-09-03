@@ -1,3 +1,4 @@
+const mainContainer = document.getElementById("mainContainer");
 const form = document.getElementById("noteForm");
 const noteList = document.querySelector(".noteList");
 const formSubmitButton = document.getElementById("noteFormSubmit");
@@ -60,7 +61,7 @@ const renderNotes = () => {
                 <h2 class="note__title">${note.title}</h2>
                 <div class="note__buttonsContainer">
                     <button onclick="showForm(${index})" class="buttonGhost" aria-label="Edit note" title="Edit"><img src="/assets/edit.svg" /></button>
-                    <button onclick="deleteNote(${index})" class="buttonGhost" aria-label="Delete note" title="Delete"><img src="/assets/trash.svg" /></button>
+                    <button onclick="showConfirmDeleteModal()" class="buttonGhost" aria-label="Delete note" title="Delete"><img src="/assets/trash.svg" /></button>
                 </div>
             </div>
             <p class="note__description">${note.description}</p>
@@ -137,7 +138,35 @@ const editNote = (title, description) => {
 function deleteNote(index) {
     notes.splice(index, 1);
 
+    closeConfirmDeleteModal();
     renderNotes();
+}
+
+function showConfirmDeleteModal(index) {
+    const modal = document.createElement("div");
+
+    modal.className = "modal";
+    modal.id = "modal";
+    modal.innerHTML = `
+        <div class="modal__overlay">
+            <div class="modal__content">
+                <div class="modal__title">Delete Note</div>
+                <div class="modal__text">Are you sure you want to delete this note?</div>
+                <div class="modal__buttonsContainer">
+                    <button onclick="closeConfirmDeleteModal()" type="button" class="buttonOutline">Cancel</button>
+                    <button onclick="deleteNote(${index})" type="button" class="buttonPrimary">Delete</button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    mainContainer.appendChild(modal);
+}
+
+function closeConfirmDeleteModal() {
+    const modal = document.getElementById("modal");
+
+    modal.remove();
 }
 
 const handleFormSubmit = (event) => {
