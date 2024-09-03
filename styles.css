@@ -129,6 +129,29 @@ ul {
     background-color: #b5b5b5;
 }
 
+.buttonOutline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px solid #bcbcbd;
+    border-radius: var(--ui-item-border-radius);
+    padding: 5px 13px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #fff;
+
+    transition: background-color 0.15s;
+}
+
+.buttonOutline:hover {
+    background-color: #e3e3e3;
+}
+
+.buttonOutline:active {
+    background-color: #b5b5b5;
+}
+
 .noteForm {
     position: absolute;
     top: 125px;
@@ -171,6 +194,7 @@ ul {
 .noteForm__textarea {
     width: 100%;
     min-height: 100px;
+    max-height: 450px;
     padding: var(--input-padding);
     border-radius: var(--ui-item-border-radius);
     border: 1px solid transparent;
@@ -241,4 +265,33 @@ ul {
 .note__date {
     opacity: 0.7;
     font-size: 15px;
+}
+
+.emptyState {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.emptyState__circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 50%;
+    background-color: #000;
+    box-shadow: 0 0 0 5px #ebecee;
+}
+
+.emptyState__title {
+    font-size: 18px;
+}
+
+.emptyState__text {
+    font-size: 16px;
+    opacity: 0.8;
+    text-align: center;
+    padding: 0 20px;
 }
