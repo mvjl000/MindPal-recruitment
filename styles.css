@@ -69,6 +69,18 @@ ul {
     border: 1px solid transparent;
     background-color: #ebecee;
     font-size: 17px;
+
+    transition: background-color 0.15s, border-color 0.15s;
+}
+
+.input:hover:not(.input:focus-visible) {
+    background-color: #d7d9dc;
+}
+
+.input:active, input:focus-visible {
+    background-color: #fff;
+    border-color: #1a1a1c;
+    outline: none;
 }
 
 .searchInput {
@@ -87,6 +99,15 @@ ul {
     padding: 10px 20px;
     font-size: 17px;
     cursor: pointer;
+
+    transition: background-color 0.15s;
+}
+
+.buttonPrimary:hover {
+    background-color: #7944b1;
+}
+.buttonPrimary:active {
+    background-color: #51297c;
 }
 
 .buttonGhost {
@@ -102,6 +123,10 @@ ul {
 
 .buttonGhost:hover {
     background-color: #e3e3e3;
+}
+
+.buttonGhost:active {
+    background-color: #b5b5b5;
 }
 
 .noteForm {
@@ -128,6 +153,15 @@ ul {
     background-color: transparent;
     border: none;
     color: #116aaf;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 0;
+    transition: border-bottom-color 0.15s;
+}
+
+.noteForm__cancel:hover {
+    font-weight: bold;
+    border-bottom-color: #116aaf;
 }
 
 .noteForm__textareaCotnainer {
@@ -136,6 +170,7 @@ ul {
 
 .noteForm__textarea {
     width: 100%;
+    min-height: 100px;
     padding: var(--input-padding);
     border-radius: var(--ui-item-border-radius);
     border: 1px solid transparent;
@@ -145,6 +180,16 @@ ul {
     font-family: sans-serif;
 }
 
+.noteForm__textarea:hover:not(.noteForm__textarea:focus-visible) {
+    background-color: #d7d9dc;
+}
+
+.noteForm__textarea:active, .noteForm__textarea:focus-visible {
+    background-color: #fff;
+    border-color: #1a1a1c;
+    outline: none;
+}
+
 .noteForm__addButton {
     position: absolute;
     bottom: 40px;
@@ -152,7 +197,8 @@ ul {
 }
 
 .noteList {
-    padding: 10px 0;
+    margin-top: -20px;
+    padding: 20px 0 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
