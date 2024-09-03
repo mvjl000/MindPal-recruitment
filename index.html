@@ -23,13 +23,13 @@
             <div class="noteList"></div>
             <form id="noteForm" class="noteForm">
                 <div class="noteForm__header">
-                    <span>Add new note</span>
+                    <span id="noteFormTitle">Add new note</span>
                     <button type="button" class="noteForm__cancel" onclick="hideForm()">Cancel</button>
                 </div>
-                <input id="noteTitle"" class="input" placeholder="Note title" />
+                <input id="noteTitle"" class="input" placeholder="Note title" name="noteTitle" />
                 <div class="noteForm__textareaCotnainer">
-                    <textarea id="noteDescription" class="noteForm__textarea" placeholder="Your note..." rows="7"></textarea>
-                    <button type="submit" class="buttonPrimary noteForm__addButton">Add</button>
+                    <textarea id="noteDescription" class="noteForm__textarea" placeholder="Your note..." name="noteDescription" rows="7"></textarea>
+                    <button id="noteFormSubmit" type="submit" class="buttonPrimary noteForm__addButton">Add</button>
                 </div>
             </form>
         </div>

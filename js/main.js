@@ -1,25 +1,26 @@
 const form = document.getElementById("noteForm");
 const noteList = document.querySelector(".noteList");
+const formSubmitButton = document.getElementById("noteFormSubmit");
+const formTitle = document.getElementById("noteFormTitle");
+
+let editedNoteIndex = null;
 
 const notes = [
-    // {
-    //     title: "Raz dwa tzy aiosjd",
-    //     description:
-    //         "make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets contain",
-    //     creationDate: new Date(),
-    // },
-    // {
-    //     title: "Another note",
-    //     description:
-    //         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using",
-    //     creationDate: new Date(),
-    // },
-    // {
-    //     title: "Raz dwa tzy aiosjd",
-    //     description:
-    //         "make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets contain",
-    //     creationDate: new Date(),
-    // },
+    {
+        title: "Raz dwa tzy aiosjd",
+        description: "make",
+        creationDate: new Date(),
+    },
+    {
+        title: "Another note",
+        description: "It",
+        creationDate: new Date(),
+    },
+    {
+        title: "Raz dwa tzy aiosjd",
+        description: "typ",
+        creationDate: new Date(),
+    },
 ];
 
 const formatDate = (date) => {
@@ -58,8 +59,8 @@ const renderNotes = () => {
             <div class="note__header">
                 <h2 class="note__title">${note.title}</h2>
                 <div class="note__buttonsContainer">
-                    <button class="buttonGhost" aria-label="Edit note"><img src="/assets/edit.svg" /></button>
-                    <button onclick="deleteNote(${index})" class="buttonGhost" aria-label="Delete note"><img src="/assets/trash.svg" /></button>
+                    <button onclick="showForm(${index})" class="buttonGhost" aria-label="Edit note" title="Edit"><img src="/assets/edit.svg" /></button>
+                    <button onclick="deleteNote(${index})" class="buttonGhost" aria-label="Delete note" title="Delete"><img src="/assets/trash.svg" /></button>
                 </div>
             </div>
             <p class="note__description">${note.description}</p>
@@ -70,19 +71,38 @@ const renderNotes = () => {
     });
 };
 
-function showForm() {
+function showForm(index) {
+    if (typeof index === "number" && notes[index]) {
+        const { title, description } = notes[index];
+
+        editedNoteIndex = index;
+
+        formSubmitButton.innerText = "Save";
+        formTitle.innerText = "Edit note";
+
+        document.getElementById("noteTitle").value = title;
+        document.getElementById("noteDescription").value = description;
+
+        form.style.display = "flex";
+
+        return;
+    }
+
+    formSubmitButton.innerHTML = "Add";
+    formTitle.innerHTML = "Add new note";
+
     form.style.display = "flex";
 }
 
 function hideForm() {
     form.style.display = "none";
+
+    editedNoteIndex = null;
+
+    form.reset();
 }
 
-const addNote = (event) => {
-    event.preventDefault();
-
-    const { value: title } = document.getElementById("noteTitle");
-    const { value: description } = document.getElementById("noteDescription");
+const addNote = (title, description) => {
     const newNote = {
         title,
         description,
@@ -97,13 +117,42 @@ const addNote = (event) => {
     hideForm();
 };
 
-function deleteNote(index) {
-    // if (confirm('Are you sure you want to delete this note?')) {
-    notes.splice(index, 1);
-    // saveNotes();
+const editNote = (title, description) => {
+    const note = notes[editedNoteIndex];
+
+    const newNote = {
+        ...note,
+        title,
+        description,
+    };
+
+    notes[editedNoteIndex] = newNote;
+
     renderNotes();
-    // }
+
+    noteForm.reset();
+    hideForm();
+};
+
+function deleteNote(index) {
+    notes.splice(index, 1);
+
+    renderNotes();
 }
 
-noteForm.addEventListener("submit", addNote);
+const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    const { value: title } = document.getElementById("noteTitle");
+    const { value: description } = document.getElementById("noteDescription");
+
+    if (typeof editedNoteIndex === "number") {
+        editNote(title, description);
+        return;
+    }
+
+    addNote(title, description);
+};
+
+noteForm.addEventListener("submit", handleFormSubmit);
 renderNotes();
