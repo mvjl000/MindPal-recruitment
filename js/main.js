@@ -10,20 +10,14 @@ let editedNoteId = null;
 let notes = [
     {
         id: getId(),
-        title: "Raz dwa tzy aiosjd",
-        description: "make",
+        title: "Note 1",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         creationDate: new Date(),
     },
     {
         id: getId(),
         title: "Another note",
-        description: "It",
-        creationDate: new Date(),
-    },
-    {
-        id: getId(),
-        title: "Raz dwa tzy aiosjd",
-        description: "typ",
+        description: "consectetur adipiscing elit.",
         creationDate: new Date(),
     },
 ];
@@ -39,8 +33,7 @@ function formatDate(date) {
     }).format(date);
 }
 
-function renderNotes(filterQuery) {
-    filterQuery = searchInput.value;
+function renderNotes() {
     noteList.innerHTML = "";
 
     if (!notes.length) {
@@ -58,6 +51,8 @@ function renderNotes(filterQuery) {
         `;
         return;
     }
+
+    const filterQuery = searchInput.value?.toLowerCase();
 
     const filteredNotes = filterQuery
         ? notes.filter((note) => {
@@ -233,13 +228,7 @@ function handleFormSubmit(event) {
     addNote(title, description);
 }
 
-function filterNotes(event) {
-    const query = event.target.value.toLowerCase();
-
-    renderNotes(query);
-}
-
-searchInput.addEventListener("input", filterNotes);
+searchInput.addEventListener("input", renderNotes);
 
 noteForm.addEventListener("submit", handleFormSubmit);
 renderNotes();
