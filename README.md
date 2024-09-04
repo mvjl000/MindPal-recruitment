@@ -1,4 +1,4 @@
-# MindPal-recruitment
+# MindPal-recruitment - [DEMO HERE](https://mind-pal-task.vercel.app/)
 
 ## Installation
 
