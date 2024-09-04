@@ -5,6 +5,27 @@
     --input-padding: 10px;
 
     --searchInput-background: #ebecee;
+
+    --colors-transition-duration: 0.15s;
+
+    --font-size-xl: 22px;
+    --font-size-lg: 18px;
+    --font-size-base: 17px;
+    --font-size-sm: 15px;
+    
+    /* COLOR PALETTE START */
+    --background-primary: #fff;
+
+    --color-primary: #603590;
+    --color-primary-hover: #7944b1;
+    --color-primary-active: #51297c;
+    
+    --color-secondary: #116aaf;
+    
+    --color-tetriary: var(--background-primary);
+    --color-tetriary-hover: #e3e3e3;
+    --color-tetriary-active: #b5b5b5;
+    /* COLOR PALETTE END */
 }
 
 body {
@@ -39,7 +60,7 @@ ul {
     gap: 20px;
     border-radius: 15px;
     border: 1px solid #cecece;
-    background-color: #fff;
+    background-color: var(--background-primary);
     position: relative;
     overflow: hidden;
 }
@@ -51,6 +72,6 @@ ul {
 }
 
 .header {
-    font-size: 22px;
+    font-size: var(--font-size-xl);
     font-weight: 400;
 }

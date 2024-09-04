@@ -5,9 +5,9 @@
     border-radius: var(--ui-item-border-radius);
     border: 1px solid transparent;
     background-color: #ebecee;
-    font-size: 17px;
+    font-size: var(--font-size-base);
 
-    transition: background-color 0.15s, border-color 0.15s;
+    transition: background-color var(--colors-transition-duration), border-color var(--colors-transition-duration);
 }
 
 .input:hover:not(.input:focus-visible) {
@@ -15,7 +15,7 @@
 }
 
 .input:active, input:focus-visible {
-    background-color: #fff;
+    background-color: var(--background-primary);
     border-color: #1a1a1c;
     outline: none;
 }
@@ -43,21 +43,21 @@
 /* BUTTONS START */
 .buttonPrimary {
     border: 1px solid transparent;
-    background-color: #603590;
+    background-color: var(--color-primary);
     color: white;
     border-radius: var(--ui-item-border-radius);
     padding: 10px 20px;
-    font-size: 17px;
+    font-size: var(--font-size-base);
     cursor: pointer;
 
-    transition: background-color 0.15s;
+    transition: background-color var(--colors-transition-duration);
 }
 
 .buttonPrimary:hover {
-    background-color: #7944b1;
+    background-color: var(--color-primary-hover);
 }
 .buttonPrimary:active {
-    background-color: #51297c;
+    background-color: var(--color-primary-active);
 }
 
 .buttonGhost {
@@ -65,18 +65,18 @@
     align-items: center;
     justify-content: center;
     border: 1px solid transparent;
-    background-color: transparent;
+    background-color: var(--color-tetriary);
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.15s;
+    transition: background-color var(--colors-transition-duration);
 }
 
 .buttonGhost:hover {
-    background-color: #e3e3e3;
+    background-color: var(--color-tetriary-hover);
 }
 
 .buttonGhost:active {
-    background-color: #b5b5b5;
+    background-color: var(--color-tetriary-active);
 }
 
 .buttonOutline {
@@ -87,19 +87,19 @@
     border: 1px solid #bcbcbd;
     border-radius: var(--ui-item-border-radius);
     padding: 5px 13px;
-    font-size: 15px;
+    font-size: var(--font-size-sm);
     cursor: pointer;
-    background-color: #fff;
+    background-color: var(--color-tetriary);
 
-    transition: background-color 0.15s;
+    transition: background-color var(--colors-transition-duration);
 }
 
 .buttonOutline:hover {
-    background-color: #e3e3e3;
+    background-color: var(--color-tetriary-hover);
 }
 
 .buttonOutline:active {
-    background-color: #b5b5b5;
+    background-color: var(--color-tetriary-active);
 }
 /* BUTTONS END */
 
@@ -125,12 +125,12 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    background-color: #fff;
+    background-color: var(--background-primary);
     border-radius: var(--ui-item-border-radius);
 }
 
 .modal__title {
-    font-size: 18px;
+    font-size: var(--font-size-lg);
 }
 
 .modal__text {

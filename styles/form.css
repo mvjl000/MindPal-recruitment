@@ -7,7 +7,7 @@
     display: none;
     flex-direction: column;
     gap: 20px;
-    background-color: #fff;
+    background-color: var(--background-primary);
     box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.2);
 }
 
@@ -21,16 +21,16 @@
 .noteForm__cancel {
     background-color: transparent;
     border: none;
-    color: #116aaf;
+    color: var(--color-secondary);
     cursor: pointer;
     border: 1px solid transparent;
     border-radius: 0;
-    transition: border-bottom-color 0.15s;
+    transition: border-bottom-color var(--colors-transition-duration);
 }
 
 .noteForm__cancel:hover {
     font-weight: bold;
-    border-bottom-color: #116aaf;
+    border-bottom-color: var(--color-secondary);
 }
 
 .noteForm__textareaCotnainer {
@@ -45,7 +45,7 @@
     border-radius: var(--ui-item-border-radius);
     border: 1px solid transparent;
     background-color: #ebecee;
-    font-size: 17px;
+    font-size: var(--font-size-base);
     resize: vertical;
     font-family: sans-serif;
 }
@@ -55,7 +55,7 @@
 }
 
 .noteForm__textarea:active, .noteForm__textarea:focus-visible {
-    background-color: #fff;
+    background-color: var(--background-primary);
     border-color: #1a1a1c;
     outline: none;
 }
@@ -81,7 +81,7 @@
     flex-direction: column;
     gap: 15px;
     border-radius: var(--ui-item-border-radius);
-    background-color: #fff;
+    background-color: var(--background-primary);
     box-shadow: 0 2px 10px 0px rgba(0, 0, 0, 0.075);
 }
 
@@ -93,7 +93,7 @@
 }
 
 .note__title {
-    font-size: 17px;
+    font-size: var(--font-size-base);
     font-weight: 400;
 }
 
@@ -104,13 +104,13 @@
 }
 
 .note__description {
-    font-size: 17px;
+    font-size: var(--font-size-base);
     opacity: 0.8;
 }
 
 .note__date {
     opacity: 0.7;
-    font-size: 15px;
+    font-size: var(--font-size-sm);
 }
 
 .emptyState {
@@ -132,11 +132,11 @@
 }
 
 .emptyState__title {
-    font-size: 18px;
+    font-size: var(--font-size-lg);
 }
 
 .emptyState__text {
-    font-size: 16px;
+    font-size: var(--font-size-sm);
     opacity: 0.8;
     text-align: center;
     padding: 0 20px;
