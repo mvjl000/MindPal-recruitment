@@ -7,20 +7,7 @@ const formTitle = document.getElementById("noteFormTitle");
 
 let editedNoteId = null;
 
-let notes = [
-    {
-        id: getId(),
-        title: "Note 1",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        creationDate: new Date(),
-    },
-    {
-        id: getId(),
-        title: "Another note",
-        description: "consectetur adipiscing elit.",
-        creationDate: new Date(),
-    },
-];
+let notes = [];
 
 function getId() {
     return Math.random().toString().split(".")[1].slice(0, 5);
@@ -65,14 +52,14 @@ function renderNotes() {
 
     if (filterQuery && !filteredNotes.length) {
         noteList.innerHTML = `
-        <div class="emptyState">
-            <div class="emptyState__circle">
-                <img src="/assets/info.svg" />
+            <div class="emptyState">
+                <div class="emptyState__circle">
+                    <img src="/assets/info.svg" />
+                </div>
+                <div class="emptyState__title">No results</div>
+                <p class="emptyState__text">Try to change the filter.</p>
             </div>
-            <div class="emptyState__title">No results</div>
-            <p class="emptyState__text">Try to change the filter.</p>
-        </div>
-    `;
+        `;
         return;
     }
 
@@ -145,11 +132,11 @@ function addNote(title, description) {
         creationDate: new Date(),
     };
 
-    notes.push(newNote);
+    notes = [...notes, newNote];
 
     renderNotes();
 
-    noteForm.reset();
+    form.reset();
     hideForm();
 }
 
@@ -174,7 +161,7 @@ function editNote(title, description) {
 
     renderNotes();
 
-    noteForm.reset();
+    form.reset();
     hideForm();
 }
 
@@ -230,5 +217,5 @@ function handleFormSubmit(event) {
 
 searchInput.addEventListener("input", renderNotes);
 
-noteForm.addEventListener("submit", handleFormSubmit);
+form.addEventListener("submit", handleFormSubmit);
 renderNotes();
