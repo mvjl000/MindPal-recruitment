@@ -27,12 +27,12 @@ function renderNotes() {
         noteList.innerHTML = `
             <div class="emptyState">
                 <div class="emptyState__circle">
-                    <img src="/assets/info.svg" />
+                    <img src="/assets/info.svg" alt="info" />
                 </div>
                 <div class="emptyState__title">No notes yet</div>
                 <p class="emptyState__text">Add a note to keep track of your learnings.</p>
                 <button onclick="showForm()" class="buttonOutline">
-                    <img src="/assets/add.svg" /> Add Note
+                    <img src="/assets/add.svg" alt="New Note" /> Add Note
                 </button>
             </div>
         `;
@@ -54,7 +54,7 @@ function renderNotes() {
         noteList.innerHTML = `
             <div class="emptyState">
                 <div class="emptyState__circle">
-                    <img src="/assets/info.svg" />
+                    <img src="/assets/info.svg" alt="Info" />
                 </div>
                 <div class="emptyState__title">No results</div>
                 <p class="emptyState__text">Try to change the filter.</p>
@@ -75,8 +75,8 @@ function renderNotes() {
             <div class="note__header">
                 <h2 class="note__title">${title}</h2>
                 <div class="note__buttonsContainer">
-                    <button onclick="showForm(${id})" class="buttonGhost" aria-label="Edit note" title="Edit"><img src="/assets/edit.svg" /></button>
-                    <button onclick="showConfirmDeleteModal(${id})" class="buttonGhost" aria-label="Delete note" title="Delete"><img src="/assets/trash.svg" /></button>
+                    <button onclick="showForm(${id})" class="buttonGhost" aria-label="Edit note" title="Edit"><img src="/assets/edit.svg" alt="Edit" /></button>
+                    <button onclick="showConfirmDeleteModal(${id})" class="buttonGhost" aria-label="Delete note" title="Delete"><img src="/assets/trash.svg" alt="Trash" /></button>
                 </div>
             </div>
             <p class="note__description">${description}</p>
